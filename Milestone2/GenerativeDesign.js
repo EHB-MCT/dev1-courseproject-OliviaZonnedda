@@ -13,8 +13,8 @@ function draw() {
     context.lineWidth = "5";
     context.strokeStyle = "white";
     drawGrid(150, 150);
-    drawArcSide(10, 65);
-
+    drawArcSideL(15, 65);
+    drawArcSideR(125, 65);
 }
 function drawGrid(x, y) {
 
@@ -22,26 +22,97 @@ function drawGrid(x, y) {
 
         Utils.drawLine(x + i * 150, 0, x + i * 150, height);
 
-        for (let i = 0; i < 10; i++) {
-            Utils.drawLine(0, y + i * 150, width, y + i * 150);
+        for (let j = 0; j < 10; j++) {
+            Utils.drawLine(0, y + j * 150, width, y + j * 150);
 
         }
     }
 
 }
 
-function drawArcSide(x, y) {
+function drawArcSideL(x, y) {
+
+    for (let i = 0; i < 40; i++) {
+
+        context.fillStyle = Utils.hsla(75 * Math.random(), 100, 50, 100);
+
+        context.beginPath();
+        context.arc(x + i * 150, y, 50, Math.PI + Math.PI / 2, Math.PI / 2);
+        context.fill();
+
+        //for (let j = 0; j < 3; j++) {
+
+        // context.fillStyle = Utils.hsla(75 * Math.random(), 100, 50, 100);
+
+        // context.beginPath();
+        //context.arc(x, y + j * 300, 50, Math.PI + Math.PI / 2, Math.PI / 2);
+        // context.fill();
+
+        // }
+
+
+
+    }
+    //row two
+    for (let i = 0; i < 40; i++) {
+
+        context.fillStyle = Utils.hsla(75 * Math.random(), 100, 50, 100);
+
+        context.beginPath();
+        context.arc(x + i * 150, y + 300, 50, Math.PI + Math.PI / 2, Math.PI / 2);
+        context.fill();
+    }
+    //row three
+    for (let i = 0; i < 40; i++) {
+
+        context.fillStyle = Utils.hsla(75 * Math.random(), 100, 50, 100);
+
+        context.beginPath();
+        context.arc(x + i * 150, y + 600, 50, Math.PI + Math.PI / 2, Math.PI / 2);
+        context.fill();
+    }
+}
+
+function drawArcSideR(x, y) {
 
 
     for (let i = 0; i < 40; i++) {
         context.fillStyle = Utils.hsla(75 * Math.random(), 100, 50, 100);
 
         context.beginPath();
-        context.arc(x + i * 150, y, 50, Math.PI + Math.PI / 2, Math.PI / 2);
+        context.arc(x + i * 150, y, 50, Math.PI / 2, Math.PI + Math.PI / 2);
         context.lineTo(x + i * 150, y);
         context.closePath();
         context.fill();
     }
+    //for (let i = 0; i < 3; i++) {
+    //context.fillStyle = Utils.hsla(75 * Math.random(), 100, 50, 100);
+
+    // context.beginPath();
+    // context.arc(x, y + i * 300, 50, Math.PI / 2, Math.PI + Math.PI / 2);
+
+    //context.closePath();
+    // context.fill();
+
+    // }
+
+    //row two
+    for (let i = 0; i < 40; i++) {
+        context.fillStyle = Utils.hsla(75 * Math.random(), 100, 50, 100);
+
+        context.beginPath();
+        context.arc(x + i * 150, y + 300, 50, Math.PI / 2, Math.PI + Math.PI / 2);
+        context.fill();
+    }
+    //row three
+    for (let i = 0; i < 40; i++) {
+        context.fillStyle = Utils.hsla(75 * Math.random(), 100, 50, 100);
+
+        context.beginPath();
+        context.arc(x + i * 150, y + 600, 50, Math.PI / 2, Math.PI + Math.PI / 2);
+        context.fill();
+    }
+
 
 
 }
