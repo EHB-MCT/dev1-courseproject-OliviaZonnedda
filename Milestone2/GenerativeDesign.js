@@ -15,6 +15,7 @@ function draw() {
     drawGrid(150, 150);
     drawArcSideL(15, 65);
     drawArcSideR(125, 65);
+    drawRect(50, 50);
 }
 function drawGrid(x, y) {
 
@@ -34,7 +35,7 @@ function drawArcSideL(x, y) {
 
     for (let i = 0; i < 40; i++) {
 
-        context.fillStyle = Utils.hsla(75 * Math.random(), 100, 50, 100);
+        context.fillStyle = Utils.hsla(75 * Math.random(), 100, 85, 100);
 
         context.beginPath();
         context.arc(x + i * 150, y, 50, Math.PI + Math.PI / 2, Math.PI / 2);
@@ -56,7 +57,7 @@ function drawArcSideL(x, y) {
     //row two
     for (let i = 0; i < 40; i++) {
 
-        context.fillStyle = Utils.hsla(75 * Math.random(), 100, 50, 100);
+        context.fillStyle = Utils.hsla(75 * Math.random(), 100, 85, 100);
 
         context.beginPath();
         context.arc(x + i * 150, y + 300, 50, Math.PI + Math.PI / 2, Math.PI / 2);
@@ -65,7 +66,7 @@ function drawArcSideL(x, y) {
     //row three
     for (let i = 0; i < 40; i++) {
 
-        context.fillStyle = Utils.hsla(75 * Math.random(), 100, 50, 100);
+        context.fillStyle = Utils.hsla(75 * Math.random(), 100, 85, 100);
 
         context.beginPath();
         context.arc(x + i * 150, y + 600, 50, Math.PI + Math.PI / 2, Math.PI / 2);
@@ -77,7 +78,7 @@ function drawArcSideR(x, y) {
 
 
     for (let i = 0; i < 40; i++) {
-        context.fillStyle = Utils.hsla(75 * Math.random(), 100, 50, 100);
+        context.fillStyle = Utils.hsla(75 * Math.random(), 100, 85, 100);
 
         context.beginPath();
         context.arc(x + i * 150, y, 50, Math.PI / 2, Math.PI + Math.PI / 2);
@@ -98,7 +99,7 @@ function drawArcSideR(x, y) {
 
     //row two
     for (let i = 0; i < 40; i++) {
-        context.fillStyle = Utils.hsla(75 * Math.random(), 100, 50, 100);
+        context.fillStyle = Utils.hsla(75 * Math.random(), 100, 85, 100);
 
         context.beginPath();
         context.arc(x + i * 150, y + 300, 50, Math.PI / 2, Math.PI + Math.PI / 2);
@@ -106,13 +107,23 @@ function drawArcSideR(x, y) {
     }
     //row three
     for (let i = 0; i < 40; i++) {
-        context.fillStyle = Utils.hsla(75 * Math.random(), 100, 50, 100);
+        context.fillStyle = Utils.hsla(75 * Math.random(), 100, 85, 100);
 
         context.beginPath();
         context.arc(x + i * 150, y + 600, 50, Math.PI / 2, Math.PI + Math.PI / 2);
         context.fill();
     }
+}
+function drawRect(x, y) {
 
+    for (let i = 0; i < 40; i++) {
+
+        context.fillStyle = Utils.hsla(220 * Math.random(), 110, 85, 100);
+        context.fillRect(x + i * 150, y + 150, Math.random() * (85 - 50) + 50, Math.random() * (85 - 50) + 50);
+
+    }
 
 
 }
+
+
