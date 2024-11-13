@@ -16,6 +16,7 @@ function draw() {
     drawArcSideL(15, 65);
     drawArcSideR(125, 65);
     drawRect(50, 50);
+    drawHearts(5, 5, 140, 140);
 }
 function drawGrid(x, y) {
 
@@ -119,7 +120,7 @@ function drawRect(x, y) {
     for (let i = 0; i < 40; i++) {
 
         context.fillStyle = Utils.hsla(220 * Math.random(), 110, 85, 100);
-        context.fillRect(x + i * 150, y + 150, Math.random() * (85 - 50) + 50, Math.random() * (85 - 50) + 50);
+        context.fillRect(x + i * 150, y + 150, Math.random() * (90 - 50) + 50, Math.random() * (90 - 50) + 50);
 
     }
     //onder
@@ -129,8 +130,50 @@ function drawRect(x, y) {
         context.fillRect(x + i * 150, y + 450, Math.random() * (85 - 50) + 50, Math.random() * (85 - 50) + 50);
 
     }
-
-
 }
+function drawHearts(x, y, x2, y2) {
+    for (let i = 0; i < 30; i++) {
+        context.fillStyle = "white";
+        context.fillRect(x + i * 150, y, x2, y2);
+    } for (let i = 0; i < 5; i++) {
+        context.fillStyle = "white";
+        context.fillRect(x, y + i * 150, x2, y2);
+
+    } for (let i = 0; i < 30; i++) {
+        context.fillStyle = "white";
+        context.fillRect(x + i * 150, y + 600, x2, y2);
+    } for (let i = 0; i < 5; i++) {
+        context.fillStyle = "white";
+        context.fillRect(x + 600, y + i * 150, x2, y2);
+
+    }
+    for (let i = 0; i < 5; i++) {
+        context.fillStyle = "white";
+        context.fillRect(x + 750, y + i * 150, x2, y2);
+
+    } for (let i = 0; i < 5; i++) {
+
+        for (let i = 0; i < 5; i++) {
+            context.fillStyle = "white";
+            context.fillRect(x + 1350, y + i * 150, x2, y2);
+
+        }
+        for (let i = 0; i < 5; i++) {
+            context.fillStyle = "white";
+            context.fillRect(x + 1500, y + i * 150, x2, y2);
+
+        }
+        //fill rest
+        context.fillStyle = "white";
+        context.fillRect(305, y + 150, x2, y2);
+        context.fillRect(1055, y + 150, x2, y2);
+        context.fillRect(x + 150, y + 450, x2, y2);
+        context.fillRect(x + 450, y + 450, x2, y2);
+        context.fillRect(x + 1200, y + 450, x2, y2);
+        context.fillRect(x + 900, y + 450, x2, y2);
+    }
+}
+
+
 
 
