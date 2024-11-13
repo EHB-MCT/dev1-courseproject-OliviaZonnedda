@@ -115,11 +115,18 @@ function drawArcSideR(x, y) {
     }
 }
 function drawRect(x, y) {
-
+    //bovenste
     for (let i = 0; i < 40; i++) {
 
         context.fillStyle = Utils.hsla(220 * Math.random(), 110, 85, 100);
         context.fillRect(x + i * 150, y + 150, Math.random() * (85 - 50) + 50, Math.random() * (85 - 50) + 50);
+
+    }
+    //onder
+    for (let i = 0; i < 40; i++) {
+
+        context.fillStyle = Utils.hsla(220 * Math.random(), 110, 85, 100);
+        context.fillRect(x + i * 150, y + 450, Math.random() * (85 - 50) + 50, Math.random() * (85 - 50) + 50);
 
     }
 
