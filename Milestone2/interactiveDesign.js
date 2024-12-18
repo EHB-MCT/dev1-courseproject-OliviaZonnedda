@@ -17,6 +17,18 @@ let alien = {
 
 };
 
+let stars = [];
+
+//sterren laten staan door array te maken van stars 
+//zodat ze op een vaste positie blijven staan
+for (let i = 0; i < 15; i++) {
+    stars.push({
+        x: Utils.randomNumber(0, width),
+        y: Utils.randomNumber(0, height)
+    });
+}
+
+
 
 draw();
 
@@ -56,12 +68,12 @@ function drawMoon(x, y, a1, a2) {
     context.closePath(); //anders plakt het aan alien
 }
 
-
 function drawStarrySky() {
-    for (let i = 0; i < 15; i++) {
-        drawStar(Utils.randomNumber(0, width), Utils.randomNumber(0, height));
+    for (let i = 0; i < stars.length; i++) {
+        drawStar(stars[i].x, stars[i].y);
     }
 }
+
 function drawStar(x, y) {
     context.beginPath();
     context.fillStyle = Utils.hsla(60, 100, 85, 20);
