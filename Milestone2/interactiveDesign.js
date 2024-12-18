@@ -10,7 +10,6 @@ let alien = {
     size: 40,
     wSpeed: 2, // widthspeed
     hSpeed: 2,//heightspeed
-    angle: 0, // rotate angle
     moving: true // beweegt al wnr het start
 
 
@@ -48,8 +47,14 @@ function draw() {
         alien.x += alien.wSpeed;
         // verticaal
         alien.y += alien.hSpeed;
-
+        //alien laten botsen 
+        if (alien.x >= width - alien.size || alien.x <= alien.size) {
+            alien.wSpeed *= -1;
+        } if (alien.y >= height - alien.size || alien.y <= alien.size) {
+            alien.hSpeed *= -1;
+        }
     }
+
 
     requestAnimationFrame(draw);
 }
