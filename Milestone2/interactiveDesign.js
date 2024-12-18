@@ -8,30 +8,43 @@ let alien = {
     x: 300,
     y: 100,
     size: 40,
+    wSpeed: 2, // widthspeed
+    hSpeed: 2,//heightspeed
+    angle: 0, // rotate angle
+    moving: true // beweegt al wnr het start
 
 
 
-}
-
-
-
-
-
-
+};
 
 
 draw();
 
 function draw() {
+
     context.fillStyle = Utils.hsl(291, 97, 13);
     context.fillRect(0, 0, width, height);
 
     drawMoon(width / 2, height / 2, Math.PI / 2, Math.PI + Math.PI / 2);
     drawStarrySky();
-    drawAlien(300, 100);
+    drawAlien(alien.x, alien.y);
+
+
+    //alien laten bewegen
+    if (alien.moving) {
+        //horizontaal
+        alien.x += alien.wSpeed;
+        // verticaal
+        alien.y += alien.hSpeed;
+
+    }
+
+    requestAnimationFrame(draw);
 }
+
 //a1 = Start angle  a2= End angle
 function drawMoon(x, y, a1, a2) {
+    context.beginPath();
     context.fillStyle = Utils.hsla(291, 97, 50, 10);
     context.arc(x, y, 150, a1, a2);
     context.closePath();
@@ -40,6 +53,7 @@ function drawMoon(x, y, a1, a2) {
     context.fillStyle = Utils.hsl(291, 97, 13);
     context.ellipse(x + 45, y, 135, 170, 0, 0, Math.PI * 2);
     context.fill();
+    context.closePath(); //anders plakt het aan alien
 }
 
 
@@ -68,15 +82,16 @@ function drawStar(x, y) {
 }
 
 function drawAlien(x, y) {
+    //hoofd
     context.beginPath();
     context.fillStyle = "darkgreen";
     Utils.fillEllipse(x, y, 40, 45, 0, 0, Math.PI * 2);
     Utils.fillEllipse(x, y + 50, 5, 15, 0, 0, Math.PI * 2);
-
+    //body
     Utils.fillEllipse(x, y + 110, 30, 60, 0, 0, Math.PI * 2);
     Utils.fillEllipse(x + 10, y + 180, 8, 40, 0, 0, Math.PI * 2);
     Utils.fillEllipse(x - 10, y + 180, 8, 40, 0, 0, Math.PI * 2);
-
+    //ogen
     context.beginPath();
     context.fillStyle = "black";
     Utils.fillEllipse(x - 15, y, 10, 20, 0, 0, Math.PI * 2);
