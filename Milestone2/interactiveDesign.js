@@ -43,6 +43,7 @@ function draw() {
     context.fillStyle = Utils.hsl(291, 97, 13);
     context.fillRect(0, 0, width, height);
 
+    drawSignature(width - 300, 450, 50, 50);
     drawMoon(width / 2, height / 2, Math.PI / 2, Math.PI + Math.PI / 2);
     drawStarrySky();
 
@@ -143,3 +144,58 @@ function click(e) {
     }
 
 }
+
+//spaceinvader
+
+
+
+
+
+function drawSignature(x, y, x2, y2) {
+
+    //base
+
+    context.strokeStyle = "black";
+    context.fillStyle = "black";
+
+    context.beginPath();
+    context.rect(x, y, x2 + 250, y2 + 250);
+
+    context.fill();
+    context.stroke();
+
+    //spaceInvader
+    context.strokeStyle = "salmon";
+    context.fillStyle = "salmon";
+    //upper piece
+    context.beginPath();
+    context.rect(x + 75, y + 20, x2 + 100, y2);
+
+    //horizontal right
+    context.rect(x + 175, y + 70, x2 + 50, y2);
+
+    //horizontal left
+    context.rect(x + 25, y + 70, x2 + 50, y2);
+
+    //vertical left
+    context.rect(x + 25, y + 70, x2, y2 + 100);
+
+    //vertical right
+    context.rect(x + 225, y + 70, x2, y2 + 100);
+
+    //lower left
+    context.rect(x + 75, y + 220, x2, y2);
+
+    //lower middle
+    context.rect(x + 125, y + 170, x2, y2);
+
+    //lower right
+    context.rect(x + 175, y + 220, x2, y2);
+
+    context.fill();
+    context.stroke();
+
+}
+
+
+
