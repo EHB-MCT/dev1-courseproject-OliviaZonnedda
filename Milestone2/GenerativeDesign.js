@@ -42,18 +42,6 @@ function drawArcSideL(x, y) {
         context.arc(x + i * 150, y, 50, Math.PI + Math.PI / 2, Math.PI / 2);
         context.fill();
 
-        //for (let j = 0; j < 3; j++) {
-
-        // context.fillStyle = Utils.hsla(75 * Math.random(), 100, 50, 100);
-
-        // context.beginPath();
-        //context.arc(x, y + j * 300, 50, Math.PI + Math.PI / 2, Math.PI / 2);
-        // context.fill();
-
-        // }
-
-
-
     }
     //row two
     for (let i = 0; i < 40; i++) {
@@ -83,8 +71,7 @@ function drawArcSideR(x, y) {
 
         context.beginPath();
         context.arc(x + i * 150, y, 50, Math.PI / 2, Math.PI + Math.PI / 2);
-        context.lineTo(x + i * 150, y);
-        context.closePath();
+
         context.fill();
     }
     //for (let i = 0; i < 3; i++) {
@@ -145,7 +132,6 @@ function drawHearts(x, y, x2, y2) {
     } for (let i = 0; i < 5; i++) {
         context.fillStyle = "white";
         context.fillRect(x + 600, y + i * 150, x2, y2);
-
     }
     for (let i = 0; i < 5; i++) {
         context.fillStyle = "white";
