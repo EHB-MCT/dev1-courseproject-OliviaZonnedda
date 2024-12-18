@@ -4,17 +4,24 @@ import * as Utils from "../scripts/utils.js";
 let width = context.canvas.width;
 let height = context.canvas.height;
 
-let alien = {
-    x: 300,
-    y: 100,
-    size: 40,
-    wSpeed: 2, // widthspeed
-    hSpeed: 2,//heightspeed
-    moving: true // beweegt al wnr het start
+window.onmousedown = click;
+//alien in array gemaakt zodat een mouse event er op kan
+//zoals(bullseye oefening)
+let gAlien = [];
 
+object();
+function object() {
+    let alien = {
+        x: 300,
+        y: 100,
+        size: 40,
+        wSpeed: 2, // widthspeed
+        hSpeed: 2,//heightspeed
+        moving: true // beweegt al wnr het start
 
-
-};
+    };
+    gAlien.push(alien);
+}
 
 let stars = [];
 
@@ -38,23 +45,26 @@ function draw() {
 
     drawMoon(width / 2, height / 2, Math.PI / 2, Math.PI + Math.PI / 2);
     drawStarrySky();
-    drawAlien(alien.x, alien.y);
 
-
-    //alien laten bewegen
-    if (alien.moving) {
-        //horizontaal
-        alien.x += alien.wSpeed;
-        // verticaal
-        alien.y += alien.hSpeed;
-        //alien laten botsen 
-        if (alien.x >= width - alien.size || alien.x <= alien.size) {
-            alien.wSpeed *= -1;
-        } if (alien.y >= height - alien.size || alien.y <= alien.size) {
-            alien.hSpeed *= -1;
-        }
+    for (let i = 0; i < gAlien.length; i++) {
+        drawAlien(gAlien[i].x, gAlien[i].y, gAlien[i].size);
     }
 
+    //alien laten bewegen
+    for (let i = 0; i < gAlien.length; i++) {
+        if (gAlien[i].moving) {
+            //horizontaal
+            gAlien[i].x += gAlien[i].wSpeed;
+            // verticaal
+            gAlien[i].y += gAlien[i].hSpeed;
+            //alien laten botsen 
+            if (gAlien[i].x >= width - gAlien[i].size || gAlien[i].x <= gAlien[i].size) {
+                gAlien[i].wSpeed *= -1;
+            } if (gAlien[i].y >= height - gAlien[i].size || gAlien[i].y <= gAlien[i].size) {
+                gAlien[i].hSpeed *= -1;
+            }
+        }
+    }
 
     requestAnimationFrame(draw);
 }
@@ -113,5 +123,23 @@ function drawAlien(x, y) {
     context.fillStyle = "black";
     Utils.fillEllipse(x - 15, y, 10, 20, 0, 0, Math.PI * 2);
     Utils.fillEllipse(x + 15, y, 10, 20, 0, 0, Math.PI * 2);
+
+}
+
+
+/**
+ * 
+ * @param {MouseEvent} e 
+ */
+
+function click(e) {
+    for (let i = 0; i < gAlien.length; i++) {
+        let distance = Utils.calculateDistance(e.pageX, e.pageY, gAlien[i].x, gAlien[i].y);
+        console.log(distance);
+        if (distance < 50) {
+            gAlien[i].moving = false;
+        }
+
+    }
 
 }
