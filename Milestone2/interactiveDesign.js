@@ -4,6 +4,22 @@ import * as Utils from "../scripts/utils.js";
 let width = context.canvas.width;
 let height = context.canvas.height;
 
+let alien = {
+    x: 300,
+    y: 100,
+    size: 40,
+
+
+
+}
+
+
+
+
+
+
+
+
 draw();
 
 function draw() {
@@ -12,6 +28,7 @@ function draw() {
 
     drawMoon(width / 2, height / 2, Math.PI / 2, Math.PI + Math.PI / 2);
     drawStarrySky();
+    drawAlien(300, 100);
 }
 //a1 = Start angle  a2= End angle
 function drawMoon(x, y, a1, a2) {
@@ -47,5 +64,22 @@ function drawStar(x, y) {
     context.lineTo(x - 15, y + 25);
 
     context.fill();
+
+}
+
+function drawAlien(x, y) {
+    context.beginPath();
+    context.fillStyle = "darkgreen";
+    Utils.fillEllipse(x, y, 40, 45, 0, 0, Math.PI * 2);
+    Utils.fillEllipse(x, y + 50, 5, 15, 0, 0, Math.PI * 2);
+
+    Utils.fillEllipse(x, y + 110, 30, 60, 0, 0, Math.PI * 2);
+    Utils.fillEllipse(x + 10, y + 180, 8, 40, 0, 0, Math.PI * 2);
+    Utils.fillEllipse(x - 10, y + 180, 8, 40, 0, 0, Math.PI * 2);
+
+    context.beginPath();
+    context.fillStyle = "black";
+    Utils.fillEllipse(x - 15, y, 10, 20, 0, 0, Math.PI * 2);
+    Utils.fillEllipse(x + 15, y, 10, 20, 0, 0, Math.PI * 2);
 
 }
